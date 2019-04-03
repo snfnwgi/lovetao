@@ -1,5 +1,3 @@
-import javax.naming.Binding
-
 include ':app', ':arms', ':ptr-lib'
 setBinding(new Binding([gradle: this]))
 evaluate(new File(
