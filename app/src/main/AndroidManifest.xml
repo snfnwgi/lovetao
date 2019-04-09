@@ -282,6 +282,9 @@
             android:name="com.ali.auth.third.ui.LoginActivity"
             android:theme="@style/AlibcLoginTheme"
             tools:replace="android:theme" />
+        <activity
+            android:name=".settings.mvp.ui.activity.PupilActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

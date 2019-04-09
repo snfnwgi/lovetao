@@ -1,5 +1,6 @@
 package com.inner.lovetao.tab.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import com.inner.lovetao.config.ArouterConfig;
 import com.inner.lovetao.config.BannerType;
 import com.inner.lovetao.config.UserInfo;
 import com.inner.lovetao.config.UserInstance;
+import com.inner.lovetao.settings.mvp.ui.activity.PupilActivity;
 import com.inner.lovetao.tab.bean.BannerBean;
 import com.inner.lovetao.tab.contract.MineFragmentContract;
 import com.inner.lovetao.tab.di.component.DaggerMineFragmentComponent;
@@ -122,7 +124,7 @@ public class MineFragment extends BaseFragment<MineFragmentPresenter> implements
             case R.id.ll_mine_getVolume:
                 break;
             case R.id.ll_mine_disciple:
-
+                launchActivity(new Intent(mContext, PupilActivity.class));
                 break;
             case R.id.ll_invite_money:
                 if (UserInstance.getInstance().isLogin(mContext)) {

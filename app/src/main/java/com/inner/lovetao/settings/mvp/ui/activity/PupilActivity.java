@@ -1,30 +1,39 @@
 package com.inner.lovetao.settings.mvp.ui.activity;
 
 import android.os.Bundle;
+import android.view.ViewGroup;
 
-import com.inner.lovetao.settings.flutter.FlutterPluginCounter;
-import com.inner.lovetao.settings.flutter.FlutterPluginJumpToAct;
+import com.inner.lovetao.R;
+import com.jess.arms.base.BaseActivity;
+import com.jess.arms.di.component.AppComponent;
 
-import io.flutter.app.FlutterActivity;
-import io.flutter.plugin.common.PluginRegistry;
-import io.flutter.plugins.GeneratedPluginRegistrant;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import io.flutter.facade.Flutter;
+import io.flutter.view.FlutterView;
 
 /**
  * desc:我的徒弟
  * Created by xcz
  * on 2019/4/3.
  */
-public class PupilActivity extends FlutterActivity {
+public class PupilActivity extends BaseActivity {
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        GeneratedPluginRegistrant.registerWith(this);
-        registerCustomPlugin(this);
+    public void setupActivityComponent(@NonNull AppComponent appComponent) {
+
     }
 
-    private static void registerCustomPlugin(PluginRegistry registrar) {
-        FlutterPluginJumpToAct.registerWith(registrar.registrarFor(FlutterPluginJumpToAct.CHANNEL));
-        FlutterPluginCounter.registerWith(registrar.registrarFor(FlutterPluginCounter.CHANNEL));
+    @Override
+    public int initView(@Nullable Bundle savedInstanceState) {
+        return R.layout.activity_pupil_flutter;
+    }
+
+    @Override
+    public void initData(@Nullable Bundle savedInstanceState) {
+        FlutterView flutterView = Flutter.createView(this, getLifecycle(), "flutter_view");
+        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        addContentView(flutterView, layoutParams);
     }
 }
 
